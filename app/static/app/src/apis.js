@@ -13,7 +13,8 @@ const get_game_id_list = (callback) => {
         dataType: "json",
         method: "GET"
     }).done((data, textStatus, jqXHR)=> {
-        callback(data);
+        let json_obj = JSON.parse(data);
+        callback(json_obj);
     })
 };
 
@@ -23,7 +24,8 @@ const get_play_mode_list_by_game_id = (game_id, callback) => {
         dataType: "json",
         method: "GET"
     }).done((data, textStatus, jqXHR)=> {
-        callback(data);
+        let json_obj = JSON.parse(data);
+        callback(json_obj);
     })
 };
 
@@ -33,7 +35,8 @@ const get_templ_by_templ_name = (templ_name, callback) => {
         dataType: "json",
         method: "GET"
     }).done((data, textStatus, jqXHR)=> {
-        callback(data);
+        let json_obj = JSON.parse(data);
+        callback(json_obj);
     })
 };
 
