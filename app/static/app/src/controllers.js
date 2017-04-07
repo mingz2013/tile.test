@@ -27,7 +27,7 @@ let init_select_view = () => {
     utils.insert_view_to_body(views.select_view());
     $('#gameId').change(() => {
         console.log("gameid change..");
-        let gameid = $(this).children('option:selected').val();
+        let gameid = $('#gameId').val();
         init_play_mode_select(gameid);
     });
     init_gameid_select();
