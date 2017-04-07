@@ -34,9 +34,9 @@ let on_templ_changed = ()=> {
 let init = () => {
 
 
-    dispatcher.addListener(event_type.game_id_list_changed, on_game_id_list_changed);
-    dispatcher.addListener(event_type.play_mode_list_changed, on_play_mode_list_changed);
-    dispatcher.addListener(event_type.templ_changed, on_templ_changed);
+    dispatcher.add_listener(event_type.game_id_list_changed, on_game_id_list_changed);
+    dispatcher.add_listener(event_type.play_mode_list_changed, on_play_mode_list_changed);
+    dispatcher.add_listener(event_type.templ_changed, on_templ_changed);
 };
 
 

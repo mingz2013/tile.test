@@ -22,16 +22,16 @@ window.onload = () => {
     console.log("onload..");
     controllers.init();
     views.init();
-    dispatcher.dispatchEvent(event_type.window_load);
+    dispatcher.dispatch_event(event_type.window_load);
 };
 
 $('#gameId').change(() => {
     console.log("gameid change..");
-    dispatcher.dispatchEvent(event_type.game_id_changed);
+    dispatcher.dispatch_event(event_type.game_id_changed);
 });
 
 $('#playMode').change(()=> {
-    dispatcher.dispatchEvent(event_type.play_mode_changed);
+    dispatcher.dispatch_event(event_type.play_mode_changed);
 });
 
 

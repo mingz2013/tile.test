@@ -19,7 +19,7 @@ let get_game_id_list = () => {
 
 let set_game_id_list = (game_ids) => {
     game_id_list = game_ids;
-    dispatcher.dispatchEvent(event_type.game_id_list_changed);
+    dispatcher.dispatch_event(event_type.game_id_list_changed);
 };
 
 let get_play_mode_list = ()=> {
@@ -27,7 +27,7 @@ let get_play_mode_list = ()=> {
 };
 let set_play_mode_list = (play_modes) => {
     play_mode_list = play_modes;
-    dispatcher.dispatchEvent(event_type.play_mode_list_changed);
+    dispatcher.dispatch_event(event_type.play_mode_list_changed);
 };
 
 let get_templ = () => {
@@ -36,7 +36,7 @@ let get_templ = () => {
 
 let set_templ = (t) => {
     templ = t;
-    dispatcher.dispatchEvent(event_type.templ_changed);
+    dispatcher.dispatch_event(event_type.templ_changed);
 };
 
 export default {

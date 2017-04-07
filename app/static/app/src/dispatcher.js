@@ -9,8 +9,8 @@
 let _events = {};
 
 
-let removeListener = (event, handler) => {
-    console.log("removeListener: " + event);
+let remove_listener = (event, handler) => {
+    console.log("remove_listener: " + event);
     let handlers = _events[event] || [];
     var index = handlers.indexOf(handler);
     if (index > -1) {
@@ -19,16 +19,16 @@ let removeListener = (event, handler) => {
     _events[event] = handlers;
 };
 
-let addListener = (event, handler) => {
-    console.log("addListener: " + event);
+let add_listener = (event, handler) => {
+    console.log("add_listener: " + event);
     let handlers = _events[event] || [];
     handlers.push(handler);
     _events[event] = handlers;
 
 };
 
-let dispatchEvent = (event, params) => {
-    console.log("dispatchEvent: " + event);
+let dispatch_event = (event, params) => {
+    console.log("dispatch_event: " + event);
     let handlers = _events[event] || [];
     console.log(handlers.length);
     handlers.forEach((handler) => {
@@ -39,8 +39,8 @@ let dispatchEvent = (event, params) => {
 
 
 export default {
-    removeListener,
-    addListener,
-    dispatchEvent
+    remove_listener,
+    add_listener,
+    dispatch_event
 }
 
