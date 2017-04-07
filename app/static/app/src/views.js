@@ -8,6 +8,7 @@
 
 import dispatcher from './dispatcher'
 import event_type from './event_type'
+import models from './models'
 
 
 let game_id_select_view = (game_id_list) => {
@@ -19,16 +20,16 @@ let play_mode_select_view = (play_mode_list) => {
 
 
 let on_game_id_list_changed = ()=> {
-    $('#gameId').html(game_id_select_view(data));
-    let gameid = $('#gameId').val();
+    $('#gameId').html(game_id_select_view(models.get_game_id_list()));
+    dispatcher.dispatch_event(event_type.game_id_changed);
 };
 let on_play_mode_list_changed = ()=> {
-    $('#playMode').html(play_mode_select_view(data));
-    let templ = $('#playMode').val();
-
+    $('#playMode').html(play_mode_select_view(models.get_play_mode_list()));
+    dispatcher.dispatch_event(event_type.play_mode_changed);
 };
 let on_templ_changed = ()=> {
-
+    // TODO 显示下面的页面
+    console.log("on_templ changed...");
 };
 
 let init = () => {

@@ -11,48 +11,35 @@
 import dispatcher from './dispatcher'
 import event_type from './event_type'
 import apis from './apis'
+import models from './models'
 
 
 let on_window_load = ()=> {
     apis.get_game_id_list((data)=> {
-        // TODO 这里更新model,然后注册监听model变化, 去更新界面, flow循环
-
+        models.set_game_id_list(data);
     });
 };
 
 let on_game_id_changed = () => {
     let gameid = $('#gameId').val();
     apis.get_play_mode_list_by_game_id(gameid, (data) => {
-
-
+        models.set_play_mode_list(data);
     });
 };
 
 let on_play_mode_changed = ()=> {
-
+    let templ = $('#playMode').val();
+    apis.get_templ_by_templ_name(templ, (data)=> {
+        models.set_templ(data);
+    });
 };
 
-
-let on_game_id_list_changed = ()=> {
-
-};
-let on_play_mode_list_changed = ()=> {
-
-
-};
-let on_templ_changed = ()=> {
-
-};
 
 
 let init = () => {
     dispatcher.add_listener(event_type.window_load, on_window_load);
     dispatcher.add_listener(event_type.game_id_changed, on_game_id_changed);
     dispatcher.add_listener(event_type.play_mode_changed, on_play_mode_changed);
-
-    dispatcher.add_listener(event_type.game_id_list_changed, on_game_id_list_changed);
-    dispatcher.add_listener(event_type.play_mode_list_changed, on_play_mode_list_changed);
-    dispatcher.add_listener(event_type.templ_changed, on_templ_changed);
 };
 
 export default {

@@ -19,14 +19,12 @@ import event_type from './event_type'
 
 
 window.onload = () => {
-    console.log("onload..");
     controllers.init();
     views.init();
     dispatcher.dispatch_event(event_type.window_load);
 };
 
 $('#gameId').change(() => {
-    console.log("gameid change..");
     dispatcher.dispatch_event(event_type.game_id_changed);
 });
 
