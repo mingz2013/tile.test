@@ -5,9 +5,9 @@
 
 
 const Models = {
-    games: [],
-    tiles: [],
-
+    game_id_list: [],
+    play_mode_list: [],
+    tiles: []
 };
 
 
