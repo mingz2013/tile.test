@@ -3,7 +3,15 @@
  */
 import jQuery from 'jquery'
 
+const $ = jQuery.$;
+
 import '../css/base.css'
 import '../css/1.css'
 
-import events from 'events'
+import controllers from './controllers'
+
+window.onload = () => {
+    console.log("onload..");
+    controllers.init();
+};
+

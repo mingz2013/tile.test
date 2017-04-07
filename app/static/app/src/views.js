@@ -3,19 +3,19 @@
  */
 
 const title_view = () => {
-    return "<div align='center' style='padding-top: 0.5cm'>" +
-        "<h1> 摆牌 </h1>" +
-        "</div>";
+    return `<div align='center' style='padding-top: 0.5cm'>
+        <h1> 摆牌 </h1>
+        </div>`;
 };
 
 const select_view = () => {
-    return "<div>" +
-        "gameId: <select id='gameId'>" +
-        "</select>" +
-        "PlayMode: <select id='playMode'>" +
-        "</select>" +
-        "</div>" +
-        "<hr/>";
+    return `<div>
+        gameId: <select id='gameId'>
+        </select>
+        PlayMode: <select id='playMode'>
+        </select>
+        </div>
+        <hr/>`;
 };
 
 
