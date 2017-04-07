@@ -18,8 +18,13 @@ const select_view = () => {
         <hr/>`;
 };
 
+const game_id_select_view = (game_id_list) => {
+    return game_id_list.map((game_id)=>`<option value="${game_id}">${game_id}</option>`).join('')
+};
+
 
 export default {
     title_view,
-    select_view
+    select_view,
+    game_id_select_view
 }

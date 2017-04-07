@@ -1,9 +1,9 @@
 /**
  * Created by zhaojm on 07/04/2017.
  */
-import jQuery from 'jquery'
 
-const $ = jQuery.$;
+let $ = require('jQuery');
+window.$ = $;
 
 import '../css/base.css'
 import '../css/1.css'
