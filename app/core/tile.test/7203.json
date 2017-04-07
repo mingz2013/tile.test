@@ -1,0 +1,12 @@
+[
+  {
+    "playMode": "zhenxiong",
+    "desc": "镇雄麻将",
+    "templ": "zhaotong"
+  },
+  {
+    "playMode": "sichuanxz",
+    "desc": "四川血战",
+    "templ": "zhaotong"
+  }
+]

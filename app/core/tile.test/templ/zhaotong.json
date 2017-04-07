@@ -1,0 +1,70 @@
+{
+  "tiles": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "tile_num": 4,
+  "rule": [
+    {
+      "name": "factor",
+      "desc": "墙上牌",
+      "count": 1,
+      "position": 0
+    },
+    {
+      "name": "seat0",
+      "desc": "seat0",
+      "count": 13,
+      "position": 1
+    },
+    {
+      "name": "seat1",
+      "desc": "seat1",
+      "count": 13,
+      "position": 14
+    },
+    {
+      "name": "seat2",
+      "desc": "seat2",
+      "count": 13,
+      "position": 27
+    },
+    {
+      "name": "seat3",
+      "desc": "seat3",
+      "count": 13,
+      "position": 40
+    },
+    {
+      "name": "other",
+      "desc": "其他",
+      "count": -1,
+      "position": 53
+    }
+  ]
+}

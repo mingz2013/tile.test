@@ -1,0 +1,12 @@
+[
+  {
+    "play_mode": "zhaotong",
+    "desc": "昭通麻将",
+    "templ": "zhaotong"
+  },
+  {
+    "play_mode": "shuifu",
+    "desc": "水富麻将",
+    "templ": "zhaotong"
+  }
+]
