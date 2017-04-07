@@ -2,29 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>通用摆牌器-zhaojm</title>
     <script type="text/javascript" src="{{ url_for('static', filename='app/dist/bundle.js') }}"></script>
 </head>
 <body>
 
 <div align="center" style="padding-top: 0.5cm">
-    <h1> 摆牌 </h1>
+    <h1>摆牌</h1>
 </div>
 <div>
-    <select id="areaId">
-        <option value="yimenpai">一门牌</option>
-        <option value="hongtong">洪桐</option>
-        <option value="tuidaohu">推倒胡</option>
-        <option value="changzhi">长治</option>
-        <option value="fanshi">繁峙</option>
-        <option value="koudian">扣点</option>
-        <option value="yingsanzu">硬三组</option>
-        <option value="datongduihu">大同堆胡</option>
+    gameId: <select id="gameId">
+    {#        <option value="yimenpai">一门牌</option>#}
     </select>
+    PlayMode: <select id="playMode">
+    {#        <option value="yimenpai">一门牌</option>#}
+</select>
 </div>
+
 <hr/>
-
-
+<!--
 <div align="center" style="padding-top: 1cm">
 
     <br/>
@@ -76,5 +72,6 @@
         </tr>
     </table>
 </div>
+-->
 </body>
 </html>
