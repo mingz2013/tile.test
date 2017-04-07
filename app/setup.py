@@ -7,11 +7,11 @@ current_path = os.path.dirname(os.path.abspath(__file__))
 source_path = os.path.join(current_path, "../")
 # sys.path.append(os.path.join(source_path, "difang/src/"))
 # sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-# sys.path.append(os.path.abspath('..'))
+# sys.path.append(os.path.abspath('.'))
 sys.path.append(source_path)
-
+print source_path
 if __name__ == '__main__':
-    from app.utils.default_encoding import init_encoding
+    from utils.default_encoding import init_encoding
 
     init_encoding()
 
