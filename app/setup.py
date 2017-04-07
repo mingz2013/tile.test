@@ -3,13 +3,14 @@
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-source_path = os.path.join(current_path, "../")
+basedir = os.path.dirname(os.path.abspath(__file__))
+source_dir = os.path.join(basedir, "../")
 # sys.path.append(os.path.join(source_path, "difang/src/"))
 # sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 # sys.path.append(os.path.abspath('.'))
-sys.path.append(source_path)
-print source_path
+sys.path.append(source_dir)
+print source_dir
+
 if __name__ == '__main__':
     from utils.default_encoding import init_encoding
 

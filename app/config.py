@@ -2,9 +2,10 @@
 __author__ = 'zhaojm'
 
 import os
+import sys
 
-
-# basedir = os.path.abspath(os.path.dirname(__file__))
+basedir = os.path.dirname(os.path.abspath(__file__))
+source_dir = os.path.join(basedir, "../")
 
 
 class Config(object):
