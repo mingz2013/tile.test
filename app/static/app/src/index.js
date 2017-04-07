@@ -15,3 +15,12 @@ window.onload = () => {
     controllers.init();
 };
 
+$('#gameId').change(() => {
+    console.log("gameid change..");
+    let gameid = $('#gameId').val();
+    controllers.init_play_mode_select(gameid);
+});
+
+$('#playMode').change(()=> {
+
+});

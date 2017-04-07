@@ -8,23 +8,10 @@ import utils from './utils'
 import apis from './apis'
 //let $ = require('jQuery');
 
-let init_title_view = () => {
-    utils.insert_view_to_body(views.title_view());
-};
-
-let init_select_view = () => {
-    utils.insert_view_to_body(views.select_view());
-    $('#gameId').change(() => {
-        console.log("gameid change..");
-        let gameid = $('#gameId').val();
-        init_play_mode_select(gameid);
-    });
-    init_gameid_select();
-};
 
 let init_gameid_select = () => {
     apis.get_game_id_list((data)=> {
-
+        // TODO 这里更新model,然后注册监听model变化, 去更新界面, flow循环
         $('#gameId').html(views.game_id_select_view(data));
         let gameid = $('#gameId').val();
         init_play_mode_select(gameid);
@@ -41,8 +28,7 @@ let init_play_mode_select = (game_id) => {
 
 
 const init = () => {
-    init_title_view();
-    init_select_view();
+    init_gameid_select();
 
 
 };
