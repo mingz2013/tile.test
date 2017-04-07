@@ -7,7 +7,7 @@
 
 let base_path = '/tile';
 
-const get_game_id_list = (callback) => {
+let get_game_id_list = (callback) => {
     $.ajax({
         url: base_path + "/game_id_list",
         dataType: "json",
@@ -18,7 +18,7 @@ const get_game_id_list = (callback) => {
     })
 };
 
-const get_play_mode_list_by_game_id = (game_id, callback) => {
+let get_play_mode_list_by_game_id = (game_id, callback) => {
     $.ajax({
         url: base_path + "/play_mode_list/" + game_id,
         dataType: "json",
@@ -29,7 +29,7 @@ const get_play_mode_list_by_game_id = (game_id, callback) => {
     })
 };
 
-const get_templ_by_templ_name = (templ_name, callback) => {
+let get_templ_by_templ_name = (templ_name, callback) => {
     $.ajax({
         url: base_path + "/templ/" + templ_name,
         dataType: "json",
