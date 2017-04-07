@@ -7,7 +7,7 @@
 
 
 import dispatcher from './dispatcher'
-import constants from './constants'
+import event_type from './event_type'
 
 
 let game_id_select_view = (game_id_list) => {
@@ -34,9 +34,9 @@ let on_templ_changed = ()=> {
 let init = () => {
 
 
-    dispatcher.addListener(constants.game_id_list_changed, on_game_id_list_changed);
-    dispatcher.addListener(constants.play_mode_list_changed, on_play_mode_list_changed);
-    dispatcher.addListener(constants.templ_changed, on_templ_changed);
+    dispatcher.addListener(event_type.game_id_list_changed, on_game_id_list_changed);
+    dispatcher.addListener(event_type.play_mode_list_changed, on_play_mode_list_changed);
+    dispatcher.addListener(event_type.templ_changed, on_templ_changed);
 };
 
 
