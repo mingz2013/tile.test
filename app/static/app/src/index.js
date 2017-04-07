@@ -16,24 +16,30 @@ import '../css/1.css'
 
 import controllers from './controllers'
 import views from './views'
+import models from './models'
 import dispatcher from './dispatcher'
 import event_type from './event_type'
 
 
-
 window.onload = () => {
+
+    $('#gameId').change(() => {
+        dispatcher.dispatch_event(event_type.game_id_changed);
+    });
+
+    $('#playMode').change(()=> {
+        dispatcher.dispatch_event(event_type.play_mode_changed);
+    });
+
+    models.init();
     controllers.init();
     views.init();
+
+
+    // begin
     dispatcher.dispatch_event(event_type.window_load);
 };
 
-$('#gameId').change(() => {
-    dispatcher.dispatch_event(event_type.game_id_changed);
-});
-
-$('#playMode').change(()=> {
-    dispatcher.dispatch_event(event_type.play_mode_changed);
-});
 
 
 

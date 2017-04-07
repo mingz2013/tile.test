@@ -39,7 +39,15 @@ let set_templ = (t) => {
     dispatcher.dispatch_event(event_type.templ_changed);
 };
 
+
+let init = ()=> {
+    game_id_list = [];
+    play_mode_list = [];
+    templ = {};
+};
+
 export default {
+    init,
     get_game_id_list,
     set_game_id_list,
     get_play_mode_list,
