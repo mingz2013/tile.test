@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<!--
+	Author: huangtao
+	Date:	2016/02/27
+-->
+
+<html>
+<title> 山西麻将摆牌 </title>
+<head>
+    <meta http-equiv="Content-Type" content="text/css; charset=utf-8">
+    <link rel="shortcut icon" href="http://111.203.187.165:8010/majiang/images/majiangpai/1.png">
+    <link href="./base.css" rel="stylesheet">
+    <script type="text/javascript" src="jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        //牌使用情况计数
+        var globalMap = {}
+        //记录玩家手牌
+        var globalPlayerTileMap = {
+            "laiziRow": new Array(),
+            "selfRow": new Array(),
+            "downRow": new Array(),
+            "topRow": new Array(),
+            "oppositeRow": new Array(),
+            "hiddenRow": new Array()
+        }
+
+        function joinArray(arr, joinStr) {
+            var resultStr = ""
+            for (var i = 0; i < arr.length; i++) {
+                if (i != arr.length - 1)
+                    resultStr += arr[i] + ","
+                else
+                    resultStr += arr[i]
+            }
+            return resultStr
+        }
+
+        function removeByValue(arr, val) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == val) {
+                    arr.splice(i, 1);
+                    break;
+                }
+            }
+        }
+
+        function onload() {
+            try {
+                var sumHtml = "";
+                var pigDiv = document.getElementById("pigDiv");
+                for (var index = 1; index < 38; index++) {
+                    if (index % 10 == 0) continue;
+
+                    globalMap[index] = 0;
+
+                    var pDiv = $("div", {"class": "pwl_spaceimgDiv", "onclick": "addTile(" + index + ")"});
+                    var tileImg = $("img", {"class": "pwl_spaceimg", "src": "../images/majiangpai/" + index + ".png"});
+                    pDiv.append(tileImg);
+                    var html = '<div class = \"pwl_spaceimgDiv\"  onclick=\"addTile(' + index + ')\"><img class=\"pwl_spaceimg\" src=\"../images/majiangpai/' + index + '\.png"  /></div>'
+                    sumHtml += html;
+                }
+                pigDiv.innerHTML = sumHtml;
+            } catch (e) {
+                alert(e)
+            }
+
+        }
+
+        function addTile(index) {
+            var titleObjVal = $('input:radio[name="tileObj"]:checked').val();
+
+            if (titleObjVal == "laiziRow" && globalPlayerTileMap[titleObjVal].length >= 1) {
+                alert("赖子牌数超出上限。。。")
+                return;
+            }
+            if (titleObjVal == "laiziRow" && globalPlayerTileMap[titleObjVal].length == 1) {
+                if (globalPlayerTileMap[titleObjVal][0] == index) {
+                    alert("赖子牌不能重复")
+                    return;
+                }
+
+            }
+            if (titleObjVal == "topRow" || titleObjVal == "downRow" || titleObjVal == "selfRow" || titleObjVal == "oppositeRow") {
+                if (globalPlayerTileMap[titleObjVal].length >= 13) {
+                    alert("玩家的手牌数不能超过13张。。。")
+                    return;
+                }
+            }
+
+            if (titleObjVal != "laiziRow" && globalMap[index] >= 4) {
+                alert("木有啦木有啦！");
+                return;
+            }
+
+            if (titleObjVal != "laiziRow")
+                globalMap[index] += 1;
+            globalPlayerTileMap[titleObjVal][globalPlayerTileMap[titleObjVal].length] = "" + index;
+
+            var imgObj = $('<img>', {
+                'src': '../images/majiangpai/' + index + '.png',
+                'class': 'pwl_spaceimg',
+                'onclick': 'romoveTile(this,' + index + ',\"' + titleObjVal + '\")'
+            });
+            $($("#" + titleObjVal).children("td")[1]).append(imgObj);
+        }
+
+        function romoveTile(obj, index, tileObjVal) {
+            if (tileObjVal != "laiziRow")
+                globalMap[index] -= 1
+            removeByValue(globalPlayerTileMap[tileObjVal], "" + index);
+            obj.parentNode.removeChild(obj)
+        }
+    </script>
+    <style type="text/css">
+        .pigDiv {
+            /**background-color: #00CC00;*/
+            margin-left: auto;
+            margin-top: 10px;
+            width: auto;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .pwl_spaceimgDiv {
+            width: 55px;
+            height: 70px;
+            float: left
+        }
+
+        .pwl_spaceimg {
+            width: 45px;
+            height: 45px;
+            overflow: hidden;
+            margin-left: 1px;
+            padding-top: 1px;
+            /**background-color: #0000cc;*/
+        }
+
+        .pwl_spaceimg:hover {
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+        }
+
+        .tableClazz {
+            /**background-color: #85edf4;*/
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 500px;
+            word-break: break-all;
+            table-layout: fixed;
+            empty-cells: show;
+            margin: 0 auto;
+            border-collapse: collapse;
+            table-layout: fixed
+        }
+
+        .tableClazz tr td {
+            /**text-overflow:ellipsis;
+            overflow:hidden;
+            white-space: nowrap;*/
+        }
+
+
+    </style>
+</head>
+
+<body onload="onload()">
+
+<div align="center" style="padding-top: 0.5cm">
+    <h1> 山西洪洞摆牌 </h1>
+</div>
+<div>
+    <select id="areaId">
+        <option value="yimenpai">一门牌</option>
+        <option value="hongtong">洪桐</option>
+        <option value="tuidaohu">推倒胡</option>
+        <option value="changzhi">长治</option>
+        <option value="fanshi">繁峙</option>
+        <option value="koudian">扣点</option>
+        <option value="yingsanzu">硬三组</option>
+        <option value="datongduihu">大同堆胡</option>
+    </select>
+</div>
+<hr/>
+
+<div align="center" style="padding-top: 1cm">
+
+    <br/>
+    <br/>
+    <br/>
+
+    <table class="tableClazz" border="1">
+        <tr id="laiziRow" height="14%">
+            <td style="text-align:center;width:5%"><input name="tileObj" type="radio"
+                                                          value="laiziRow"/><strong>赖子</strong></td>
+            <td style="width:55%"></td>
+            <td rowspan="4">
+                <div class="pigDiv" id="pigDiv">
+
+
+                </div>
+            </td>
+        </tr>
+        <tr id="selfRow" height="14%">
+            <td style="text-align:center;width:5%"><input name="tileObj" type="radio" value="selfRow"
+                                                          checked="checked"/><strong>自己</strong></td>
+            <td style="text-align:left;width:55%"></td>
+        </tr>
+        <tr id="downRow" height="14%">
+            <td style="text-align:center;width:5%"><input name="tileObj" type="radio"
+                                                          value="downRow"/><strong>下家</strong></td>
+            <td style="text-align:left;width:55%"></td>
+        </tr>
+        <tr id="oppositeRow" height="14%">
+            <td style="text-align:center;width:5%"><input name="tileObj" type="radio"
+                                                          value="oppositeRow"/><strong>对家</strong></td>
+            <td style="text-align:left;width:55%"></td>
+        </tr>
+        <tr id="topRow" height="14%">
+            <td style="text-align:center;width:5%"><input name="tileObj" type="radio"
+                                                          value="topRow"/><strong>上家</strong></td>
+            <td style="text-align:left;width:55%"></td>
+            <td rowspan="2">
+                <div align="center" style="padding: 1cm 0cm 1cm 0cm">
+                    <a href="#" class="button" id="put_card"> 摆牌 </a>
+                    <a href="#" class="button" id="cancel"> 撤销 </a>
+                </div>
+            </td>
+        </tr>
+        <tr id="hiddenRow">
+            <td style="text-align:center;width:5%"><input name="tileObj" type="radio"
+                                                          value="hiddenRow"/><strong>底牌</strong></td>
+            <td style="text-align:left;width:55%"></td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $('#put_card').click(function () {
+            wanfa = $("#areaId").val();
+//		alert(wanfa)
+            var seat1 = globalPlayerTileMap['selfRow'];
+            var seat2 = globalPlayerTileMap['topRow'];
+            var seat3 = globalPlayerTileMap['downRow'];
+            var seat4 = globalPlayerTileMap['oppositeRow'];
+            var pool = globalPlayerTileMap['hiddenRow'];
+            var laizi = globalPlayerTileMap['laiziRow'];
+            var datas = {
+                "play_mode": "" + wanfa,
+                "seat1": joinArray(seat1, ","),
+                "seat2": joinArray(seat2, ","),
+                "seat3": joinArray(seat3, ","),
+                "seat4": joinArray(seat4, ","),
+                "laizi": joinArray(laizi, ","),
+                "pool": joinArray(pool, ","),
+            };
+            console.log("send datas = " + JSON.stringify(datas));
+            var host = window.location.host;
+            $.get("http://" + host + "/majiang/admin/9994_put_tiles",
+                    datas,
+                    function (msg, status, xhr) {
+                        console.log("receive msg = " + JSON.stringify(msg));
+                        if (msg.code == 0) {
+                            alert(JSON.stringify("设置成功！"));
+                        } else {
+                            alert(JSON.stringify("设置失败！"));
+                        }
+                    },
+                    "json"
+            );
+        });
+
+        $('#cancel').click(function () {
+            history.go(0);
+            var host = window.location.host;
+            wanfa = $("#areaId").val();
+            $.get("http://" + host + "/majiang/admin/9994_cancel_put_tiles",
+                    {
+                        "play_mode": wanfa
+                    },
+                    function (msg, status, xhr) {
+                        console.log("receive msg = " + JSON.stringify(msg));
+                        if (msg.code == 0) {
+                            alert(JSON.stringify("撤销成功！"));
+                        } else {
+                            alert(JSON.stringify("撤销失败！"));
+                        }
+                    },
+                    "json"
+            );
+        });
+
+    });
+
+</script>
+
