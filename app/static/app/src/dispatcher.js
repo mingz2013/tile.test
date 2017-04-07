@@ -30,7 +30,6 @@ let add_listener = (event, handler) => {
 let dispatch_event = (event, params) => {
     console.log("dispatch_event: " + event);
     let handlers = _events[event] || [];
-    console.log(handlers.length);
     handlers.forEach((handler) => {
         handler(params);
     })
