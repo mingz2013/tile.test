@@ -1,13 +1,16 @@
 /**
  * Created by zhaojm on 07/04/2017.
+ *
+ * 这里处理界面上的事件触发, 系统的事件触发,
+ *
+ * 网络api调用都在这里
+ *
  */
 
 
 import dispatcher from './dispatcher'
-import views from './views'
-//import utils from './utils'
-import apis from './apis'
 import constants from './constants'
+import apis from './apis'
 
 
 let on_window_load = ()=> {
@@ -17,14 +20,24 @@ let on_window_load = ()=> {
     });
 };
 
+let on_game_id_changed = () => {
+    let gameid = $('#gameId').val();
+    apis.get_play_mode_list_by_game_id(game_id, (data) => {
+
+
+    });
+};
+
+let on_play_mode_changed = ()=> {
+
+};
+
 
 let on_game_id_list_changed = ()=> {
-    $('#gameId').html(views.game_id_select_view(data));
-    let gameid = $('#gameId').val();
+
 };
 let on_play_mode_list_changed = ()=> {
-    $('#playMode').html(views.play_mode_select_view(data));
-    let templ = $('#playMode').val();
+
 
 };
 let on_templ_changed = ()=> {
@@ -34,6 +47,8 @@ let on_templ_changed = ()=> {
 
 let init = () => {
     dispatcher.addListener(constants.window_load, on_window_load);
+    dispatcher.addListener(constants.game_id_changed, on_game_id_changed);
+    dispatcher.addListener(constants.play_mode_changed, on_play_mode_changed);
 
     dispatcher.addListener(constants.game_id_list_changed, on_game_id_list_changed);
     dispatcher.addListener(constants.play_mode_list_changed, on_play_mode_list_changed);

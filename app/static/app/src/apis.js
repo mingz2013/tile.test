@@ -1,8 +1,9 @@
 /**
  * Created by zhaojm on 07/04/2017.
+ *
+ * 这里访问网络的api
+ *
  */
-
-//let $ = require('jQuery');
 
 
 let base_path = '/tile';
