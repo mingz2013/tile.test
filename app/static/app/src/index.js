@@ -4,3 +4,4 @@
 import jQuery from 'jquery'
 
 import '../css/base.css'
+import '../css/1.css'

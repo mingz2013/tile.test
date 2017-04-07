@@ -1,0 +1,49 @@
+.pigDiv {
+    /**background-color: #00CC00;*/
+    margin-left: auto;
+    margin-top: 10px;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+}
+
+.pwl_spaceimgDiv {
+    width: 55px;
+    height: 70px;
+    float: left
+}
+
+.pwl_spaceimg {
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    margin-left: 1px;
+    padding-top: 1px;
+    /**background-color: #0000cc;*/
+}
+
+.pwl_spaceimg:hover {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.tableClazz {
+    /**background-color: #85edf4;*/
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    word-break: break-all;
+    table-layout: fixed;
+    empty-cells: show;
+    margin: 0 auto;
+    border-collapse: collapse;
+    table-layout: fixed
+}
+
+.tableClazz tr td {
+    /**text-overflow:ellipsis;
+    overflow:hidden;
+    white-space: nowrap;*/
+}
