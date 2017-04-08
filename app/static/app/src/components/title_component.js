@@ -5,15 +5,21 @@ import Component from './component'
 
 class TitleComponent extends Component {
     constructor() {
-        super();
+        this.model = {};
+
     }
 
     render() {
-
+        return this.view();
     }
 
     view() {
-        return `<div><h1>摆牌</h1></div>`
+        return `<div><h1>${this.model.title}</h1></div>`
+    }
+
+    set_model(model) {
+        this.model = model;
+        this.render();
     }
 
 }
