@@ -40,6 +40,10 @@ let set_templ = (t) => {
 };
 
 
+let get_tile_pool = () => {
+    return templ.tiles;
+};
+
 let init = ()=> {
     game_id_list = [];
     play_mode_list = [];
@@ -53,6 +57,7 @@ export default {
     get_play_mode_list,
     set_play_mode_list,
     get_templ,
-    set_templ
+    set_templ,
+    get_tile_pool
 }
 

@@ -10,27 +10,50 @@ import dispatcher from './dispatcher'
 import event_type from './event_type'
 import models from './models'
 
-
+// components
 let game_id_select_view = (game_id_list) => {
     return game_id_list.map((game_id)=>`<option value="${game_id}">${game_id}</option>`).join('')
 };
 let play_mode_select_view = (play_mode_list) => {
     return play_mode_list.map((play_mode)=>`<option value="${play_mode.templ}">${play_mode.desc}</option>`).join('')
 };
+let tile_pool_view = (tiles) => {
+    return tiles.map((tile) => `<img src="1.png"/>`).join('')
+};
 
 
-let on_game_id_list_changed = ()=> {
+// renders
+let render_game_id_select_view = () => {
     $('#gameId').html(game_id_select_view(models.get_game_id_list()));
     dispatcher.dispatch_event(event_type.game_id_changed);
 };
-let on_play_mode_list_changed = ()=> {
+
+let render_play_mode_select_view = () => {
     $('#playMode').html(play_mode_select_view(models.get_play_mode_list()));
     dispatcher.dispatch_event(event_type.play_mode_changed);
 };
+
+let render_tile_pool_view = () => {
+    $('#tilePool').html(tile_pool_view(models.get_tile_pool()));
+};
+
+
+// events
+let on_game_id_list_changed = ()=> {
+    render_game_id_select_view();
+
+};
+let on_play_mode_list_changed = ()=> {
+    render_play_mode_select_view();
+
+};
+
 let on_templ_changed = ()=> {
     // TODO 显示下面的页面
     console.log("on_templ changed...");
+    render_tile_pool_view();
 };
+
 
 let init = () => {
 

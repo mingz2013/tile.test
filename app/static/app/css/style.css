@@ -15,11 +15,13 @@ body {
 
 .main {
     padding-top: 1cm;
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+
 }
 
-table {
-    border: 8px;
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
+.tile-pool {
+    border: 1px solid black;
+    height: 50px;
+
 }
