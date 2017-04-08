@@ -11,8 +11,9 @@
 let $ = require('jQuery');
 window.$ = $;
 
-import '../css/base.css'
-import '../css/1.css'
+//import '../css/base.css'
+//import '../css/1.css'
+import '../css/style.css'
 
 import controllers from './controllers'
 import views from './views'

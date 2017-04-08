@@ -6,8 +6,8 @@
     <script type="text/javascript" src="{{ url_for('static', filename='app/dist/bundle.js') }}"></script>
 </head>
 <body>
-<div align='center' style='padding-top: 0.5cm'>
-    <h1> 摆牌 </h1>
+<div class="title">
+    <h1>摆牌</h1>
 </div>
 <div>
     gameId: <select id='gameId'>
@@ -17,13 +17,9 @@
 </div>
 <hr/>
 
-<div align="center" style="padding-top: 1cm">
+<div class="main">
 
-    <br/>
-    <br/>
-    <br/>
-
-    <table class="tableClazz" border="1">
+    <table>
         <tr id="laiziRow" height="14%">
             <td style="text-align:center;width:5%"><input name="tileObj" type="radio"
                                                           value="laiziRow"/><strong>赖子</strong></td>

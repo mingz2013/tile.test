@@ -1,0 +1,25 @@
+body {
+    background: darkgrey;
+    margin: 0;
+    padding: 0;
+    font-family: verdana;
+}
+
+.title {
+    padding-top: 0.5cm;
+    /*align-content: center;*/
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.main {
+    padding-top: 1cm;
+}
+
+table {
+    border: 8px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
