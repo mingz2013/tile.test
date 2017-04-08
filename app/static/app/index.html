@@ -2,61 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>通用摆牌器-zhaojm</title>
     <script type="text/javascript" src="dist/bundle.js"></script>
 </head>
 <body>
-
-<div align="center" style="padding-top: 1cm">
-
-    <br/>
-    <br/>
-    <br/>
-
-    <table class="tableClazz" border="1">
-        <tr id="laiziRow" height="14%">
-            <td style="text-align:center;width:5%"><input name="tileObj" type="radio"
-                                                          value="laiziRow"/><strong>赖子</strong></td>
-            <td style="width:55%"></td>
-            <td rowspan="4">
-                <div class="pigDiv" id="pigDiv">
-
-
-                </div>
-            </td>
-        </tr>
-        <tr id="selfRow" height="14%">
-            <td style="text-align:center;width:5%"><input name="tileObj" type="radio" value="selfRow"
-                                                          checked="checked"/><strong>自己</strong></td>
-            <td style="text-align:left;width:55%"></td>
-        </tr>
-        <tr id="downRow" height="14%">
-            <td style="text-align:center;width:5%"><input name="tileObj" type="radio"
-                                                          value="downRow"/><strong>下家</strong></td>
-            <td style="text-align:left;width:55%"></td>
-        </tr>
-        <tr id="oppositeRow" height="14%">
-            <td style="text-align:center;width:5%"><input name="tileObj" type="radio"
-                                                          value="oppositeRow"/><strong>对家</strong></td>
-            <td style="text-align:left;width:55%"></td>
-        </tr>
-        <tr id="topRow" height="14%">
-            <td style="text-align:center;width:5%"><input name="tileObj" type="radio"
-                                                          value="topRow"/><strong>上家</strong></td>
-            <td style="text-align:left;width:55%"></td>
-            <td rowspan="2">
-                <div align="center" style="padding: 1cm 0cm 1cm 0cm">
-                    <a href="#" class="button" id="put_card"> 摆牌 </a>
-                    <a href="#" class="button" id="cancel"> 撤销 </a>
-                </div>
-            </td>
-        </tr>
-        <tr id="hiddenRow">
-            <td style="text-align:center;width:5%"><input name="tileObj" type="radio"
-                                                          value="hiddenRow"/><strong>底牌</strong></td>
-            <td style="text-align:left;width:55%"></td>
-        </tr>
-    </table>
+<div class="title">
+    <h1>摆牌</h1>
 </div>
+<div>
+    gameId: <select id='gameId'></select>
+    PlayMode: <select id='playMode'></select>
+</div>
+
+<hr/>
+
+<div class="main">
+
+    <div id="tilePool" class="tile-pool"></div>
+
+    <div></div>
+
+
+</div>
+
 </body>
 </html>
