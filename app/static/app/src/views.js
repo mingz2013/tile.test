@@ -10,6 +10,11 @@ import dispatcher from './dispatcher'
 import event_type from './event_type'
 import models from './models'
 
+const requireContext = require.context("../images", true, /^\.\/.*\.png$/);
+console.log(requireContext);
+const images = requireContext.keys().map(requireContext);
+console.log(images);
+
 // components
 let game_id_select_view = (game_id_list) => {
     return game_id_list.map((game_id)=>`<option value="${game_id}">${game_id}</option>`).join('')
@@ -18,7 +23,7 @@ let play_mode_select_view = (play_mode_list) => {
     return play_mode_list.map((play_mode)=>`<option value="${play_mode.templ}">${play_mode.desc}</option>`).join('')
 };
 let tile_pool_view = (tiles) => {
-    return tiles.map((tile) => `<img src="1.png"/>`).join('')
+    return tiles.map((tile) => `<img src="../images/1.png"/>`).join('')
 };
 
 
