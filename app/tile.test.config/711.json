@@ -1,0 +1,27 @@
+[
+  {
+    "playMode": "qujing",
+    "desc": "曲靖麻将",
+    "templ": "zhaotong"
+  },
+  {
+    "playMode": "luoping",
+    "desc": "罗平麻将",
+    "templ": "zhaotong"
+  },
+  {
+    "playMode": "xuanwei",
+    "desc": "宣威麻将",
+    "templ": "zhaotong"
+  },
+  {
+    "playMode": "luliang",
+    "desc": "陆良麻将",
+    "templ": "zhaotong"
+  },
+  {
+    "playMode": "huize",
+    "desc": "会泽麻将",
+    "templ": "zhaotong"
+  }
+]
