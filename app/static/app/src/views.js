@@ -19,9 +19,14 @@ let game_id_select_view = (game_id_list) => {
 let play_mode_select_view = (play_mode_list) => {
     return play_mode_list.map((play_mode)=>`<option value="${play_mode.templ}">${play_mode.desc}</option>`).join('');
 };
+
+let tile_view = (tile, num) => {
+    return `<div class="tile"><img src="${imagesReq('./' + tile + '.png')}" class="tile"/><span>${num}</span></div>`
+};
+
 let tile_pool_view = (tiles) => {
     return tiles.map((color)=> {
-        return color.map((tile) => `<img src="${imagesReq('./' + tile + '.png')}" class="tile"/>`).join('');
+        return color.map((tile) => tile_view(tile, 4)).join('');
     }).join('<br/>');
 };
 

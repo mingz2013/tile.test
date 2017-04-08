@@ -23,6 +23,7 @@ body {
 .tile-pool {
     border: 1px solid black;
     height: auto;
+    width: auto;
 
 }
 
@@ -33,6 +34,7 @@ body {
     margin-left: 1px;
     padding-top: 1px;
     /**background-color: #0000cc;*/
+    display: inline;
 }
 
 .tile:hover {
@@ -40,3 +42,8 @@ body {
     height: 80px;
     overflow: hidden;
 }
+
+.tile span {
+    border: 5px solid red;
+}
+
