@@ -10,8 +10,8 @@
 
 let $ = require('jQuery');
 window.$ = $;
-let req = require.context("../images", true, /^\.\/.*\.png$/);
-window.imgReq = req;
+let imagesReq = require.context("../images", true, /^\.\/.*\.png$/);
+window.imagesReq = imagesReq;
 
 //import '../css/base.css'
 //import '../css/1.css'
