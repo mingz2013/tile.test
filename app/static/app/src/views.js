@@ -21,7 +21,9 @@ let play_mode_select_view = (play_mode_list) => {
 };
 
 let tile_view = (tile, num) => {
-    return `<div class="tile"><img src="${imagesReq('./' + tile + '.png')}" class="tile"/><span>${num}</span></div>`
+    return `<div class="tile">
+    <img src="${imagesReq('./' + tile + '.png')}" class="tile"/>
+    <div class="dot"><span>${num}</span></div></div>`
 };
 
 let tile_pool_view = (tiles) => {

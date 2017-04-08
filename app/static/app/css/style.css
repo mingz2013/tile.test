@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background: darkgrey;
     margin: 0;
@@ -29,21 +34,38 @@ body {
 
 .tile {
     width: 55px;
-    height: 70px;
-    overflow: hidden;
+    /*height: 70px;*/
+    /*overflow: hidden;*/
     margin-left: 1px;
     padding-top: 1px;
     /**background-color: #0000cc;*/
     display: inline;
+    position: relative;
 }
 
 .tile:hover {
     width: 65px;
-    height: 80px;
-    overflow: hidden;
+    /*height: 80px;*/
+    /*overflow: hidden;*/
 }
 
-.tile span {
-    border: 5px solid red;
+.dot {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #F00;
+    border-radius: 25px;
+    /*float:right;*/
+    right: 0;
+    top: 0;
+}
+
+.dot span {
+    /*border: 5px solid red;*/
+    height: 5px;
+    line-height: 5px;
+    /*display:block;*/
+    color: #FFF;
+    text-align: center;
 }
 
