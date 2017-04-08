@@ -8,8 +8,7 @@ module.exports = {
 
     output: {
         path: path.resolve(ROOT_PATH, 'dist'),
-        filename: 'bundle.js',
-        publicPath: path.resolve(ROOT_PATH, 'images')
+        filename: 'bundle.js'
     },
 
     resolve: {
@@ -32,7 +31,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg)$/,
-                loader: 'url-loader?limit=8192&name=images/[name].[ext]'
+                loader: 'url-loader?limit=10000&name=[name].[ext]'
             },
             {
                 test: /\.scss$/,

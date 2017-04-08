@@ -10,10 +10,13 @@
 
 let $ = require('jQuery');
 window.$ = $;
+let req = require.context("../images", true, /^\.\/.*\.png$/);
+window.imgReq = req;
 
 //import '../css/base.css'
 //import '../css/1.css'
 import '../css/style.css'
+
 
 import controllers from './controllers'
 import views from './views'
