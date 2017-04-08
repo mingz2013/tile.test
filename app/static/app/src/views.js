@@ -11,7 +11,6 @@ import event_type from './event_type'
 import models from './models'
 
 
-
 // components
 let game_id_select_view = (game_id_list) => {
     return game_id_list.map((game_id)=>`<option value="${game_id}">${game_id}</option>`).join('');
@@ -22,8 +21,11 @@ let play_mode_select_view = (play_mode_list) => {
 
 let tile_view = (tile, num) => {
     return `<div class="tile">
-    <img src="${imagesReq('./' + tile + '.png')}" class="tile"/>
-    <div class="dot"><span>${num}</span></div></div>`
+                <img src="${imagesReq('./' + tile + '.png')}" class="tile"/>
+                <div class="dot">
+                    <span>${num}</span>
+                </div>
+            </div>`
 };
 
 let tile_pool_view = (tiles) => {
@@ -54,20 +56,18 @@ let on_game_id_list_changed = ()=> {
     render_game_id_select_view();
 
 };
+
 let on_play_mode_list_changed = ()=> {
     render_play_mode_select_view();
 
 };
 
 let on_templ_changed = ()=> {
-    // TODO 显示下面的页面
-    console.log("on_templ changed...");
     render_tile_pool_view();
 };
 
 
 let init = () => {
-
     dispatcher.add_listener(event_type.game_id_list_changed, on_game_id_list_changed);
     dispatcher.add_listener(event_type.play_mode_list_changed, on_play_mode_list_changed);
     dispatcher.add_listener(event_type.templ_changed, on_templ_changed);
@@ -76,5 +76,4 @@ let init = () => {
 
 export default {
     init
-
 }

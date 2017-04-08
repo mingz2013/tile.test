@@ -13,6 +13,8 @@ let game_id_list = [];
 let play_mode_list = [];
 let templ = {};
 
+let project_data = {};
+
 let get_game_id_list = () => {
     return game_id_list;
 };
