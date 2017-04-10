@@ -11,6 +11,10 @@ import event_type from './event_type'
 import models from './models'
 
 
+// view events
+
+
+
 // components
 let game_id_select_view = (game_id_list) => {
     return game_id_list.map((game_id)=>`<option value="${game_id}">${game_id}</option>`).join('');
