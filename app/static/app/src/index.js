@@ -13,6 +13,8 @@ window.$ = $;
 let imagesReq = require.context("../images", true, /^\.\/.*\.png$/);
 window.imagesReq = imagesReq;
 
+import 'bootstrap'
+
 //import '../css/base.css'
 //import '../css/1.css'
 import '../css/style.css'
