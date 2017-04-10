@@ -30,7 +30,7 @@ let tile_view = (tile, num) => {
 
 let tile_pool_view = (tiles) => {
     return tiles.map((color)=> {
-        return color.map((tile) => tile_view(tile, 4)).join('');
+        return color.map((tile) => tile_view(tile.tile, tile.tile_num)).join('');
     }).join('<br/>');
 };
 
@@ -62,7 +62,7 @@ let on_play_mode_list_changed = ()=> {
 
 };
 
-let on_templ_changed = ()=> {
+let on_tile_pool_changed = ()=> {
     render_tile_pool_view();
 };
 
@@ -70,7 +70,7 @@ let on_templ_changed = ()=> {
 let init = () => {
     dispatcher.add_listener(event_type.game_id_list_changed, on_game_id_list_changed);
     dispatcher.add_listener(event_type.play_mode_list_changed, on_play_mode_list_changed);
-    dispatcher.add_listener(event_type.templ_changed, on_templ_changed);
+    dispatcher.add_listener(event_type.tile_pool_changed, on_tile_pool_changed);
 };
 
 
