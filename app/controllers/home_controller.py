@@ -13,3 +13,8 @@ api = Blueprint('home_controller', __name__, url_prefix='')
 @api.route('/', methods=['GET'])
 def index():
     return render_template("index.html")
+
+
+@api.route('/test', methods=['GET'])
+def test():
+    return render_template("test.html")

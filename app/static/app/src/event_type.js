@@ -6,13 +6,14 @@
 
 
 
-
+// model changed
 let game_id_list_changed = "game_id_list_changed";
 let play_mode_list_changed = "play_mode_list_changed";
 let templ_changed = "templ_changed";
 let tile_pool_changed = "tile_pool_changed";
+let project_data_changed = "project_data_changed";
 
-
+// view events
 let window_load = "window_load";
 let game_id_changed = "game_id_changed";
 let play_mode_changed = "play_mode_changed";
@@ -23,6 +24,7 @@ export default {
     play_mode_list_changed,
     templ_changed,
     tile_pool_changed,
+    project_data_changed,
 
     window_load,
     game_id_changed,

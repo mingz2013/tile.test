@@ -40,37 +40,43 @@
       "name": "factor",
       "desc": "墙上牌",
       "count": 1,
-      "position": 0
+      "position": 0,
+      "tiles": []
     },
     {
       "name": "seat0",
       "desc": "seat0",
       "count": 13,
-      "position": 1
+      "position": 1,
+      "tiles": []
     },
     {
       "name": "seat1",
       "desc": "seat1",
       "count": 13,
-      "position": 14
+      "position": 14,
+      "tiles": []
     },
     {
       "name": "seat2",
       "desc": "seat2",
       "count": 13,
-      "position": 27
+      "position": 27,
+      "tiles": []
     },
     {
       "name": "seat3",
       "desc": "seat3",
       "count": 13,
-      "position": 40
+      "position": 40,
+      "tiles": []
     },
     {
       "name": "other",
       "desc": "其他",
       "count": -1,
-      "position": 53
+      "position": 53,
+      "tiles": []
     }
   ]
 }

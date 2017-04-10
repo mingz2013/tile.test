@@ -38,6 +38,27 @@ let tile_pool_view = (tiles) => {
     }).join('<br/>');
 };
 
+let project_data_radio_view = (desc) => {
+    return `<label><input type="radio"/>${desc}</label>`;
+};
+
+let project_data_tiles_view = (tiles) => {
+    return tiles.map((tile)=> {
+        return `<div class="tile">
+                <img src="${imagesReq('./' + tile + '.png')}" class="tile"/>
+            </div>`
+    }).join('');
+};
+
+let project_data_view = (project_data) => {
+    return project_data.map((line) => {
+        return `<div>
+            <div>${project_data_radio_view(line.desc)}</div>
+            <div>${project_data_tiles_view(line.tiles)}</div>
+        </div>`;
+    }).join('');
+};
+
 
 // renders
 let render_game_id_select_view = () => {
@@ -54,6 +75,9 @@ let render_tile_pool_view = () => {
     $('#tilePool').html(tile_pool_view(models.get_tile_pool()));
 };
 
+let render_project_data_view = () => {
+    $('#projectData').html(project_data_view(models.get_project_data()));
+};
 
 // events
 let on_game_id_list_changed = ()=> {
@@ -70,11 +94,15 @@ let on_tile_pool_changed = ()=> {
     render_tile_pool_view();
 };
 
+let on_project_data_changed = () => {
+    render_project_data_view();
+};
 
 let init = () => {
     dispatcher.add_listener(event_type.game_id_list_changed, on_game_id_list_changed);
     dispatcher.add_listener(event_type.play_mode_list_changed, on_play_mode_list_changed);
     dispatcher.add_listener(event_type.tile_pool_changed, on_tile_pool_changed);
+    dispatcher.add_listener(event_type.project_data_changed, on_project_data_changed);
 };
 
 

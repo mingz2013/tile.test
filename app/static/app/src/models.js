@@ -54,9 +54,18 @@ let set_tile_pool = (tile_pool) => {
     dispatcher.dispatch_event(event_type.tile_pool_changed);
 };
 
+let set_project_data = (project_data) => {
+    _project_data = project_data;
+    dispatcher.dispatch_event(event_type.project_data_changed);
+};
+let get_project_data = () => {
+    return _project_data;
+};
+
 
 // events
 let on_templ_changed = ()=> {
+
     let tiles = _templ.tiles || [];
     let tile_pool = tiles.reduce((acc, color, i) => {
         let c = color.reduce((accc, tile, ii) => {
@@ -69,8 +78,9 @@ let on_templ_changed = ()=> {
         acc.push(c);
         return acc;
     }, []);
-
     set_tile_pool(tile_pool);
+
+    set_project_data(_templ.rule);
 };
 
 
@@ -91,6 +101,8 @@ export default {
     get_templ,
     set_templ,
     get_tile_pool,
-    set_tile_pool
+    set_tile_pool,
+    set_project_data,
+    get_project_data
 }
 
