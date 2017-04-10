@@ -38,7 +38,7 @@
   "rule": [
     {
       "name": "factor",
-      "desc": "墙上牌",
+      "desc": "factor",
       "count": 1,
       "position": 0,
       "tiles": []
@@ -73,7 +73,7 @@
     },
     {
       "name": "other",
-      "desc": "其他",
+      "desc": "other",
       "count": -1,
       "position": 53,
       "tiles": []

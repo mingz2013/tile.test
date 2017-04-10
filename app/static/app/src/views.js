@@ -39,7 +39,7 @@ let tile_pool_view = (tiles) => {
 };
 
 let project_data_radio_view = (desc) => {
-    return `<label><input type="radio"/>${desc}</label>`;
+    return `<label><input type="radio" name="rule"/>${desc}</label>`;
 };
 
 let project_data_tiles_view = (tiles) => {
