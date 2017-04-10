@@ -9,6 +9,7 @@
 import dispatcher from './dispatcher'
 import event_type from './event_type'
 
+// data
 let _game_id_list = [];
 let _play_mode_list = [];
 let _templ = {};
@@ -16,6 +17,8 @@ let _tile_pool = {};
 
 let _project_data = {};
 
+
+// getter/setter
 let get_game_id_list = () => {
     return _game_id_list;
 };
@@ -52,6 +55,7 @@ let set_tile_pool = (tile_pool) => {
 };
 
 
+// events
 let on_templ_changed = ()=> {
     let tiles = _templ.tiles || [];
     let tile_pool = tiles.reduce((acc, color, i) => {
