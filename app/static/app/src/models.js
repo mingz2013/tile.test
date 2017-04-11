@@ -64,6 +64,44 @@ let set_project_data = (project_data) => {
 };
 
 
+let add_one_tile = (tile) => {
+    _tile_pool.forEach((color)=> {
+        color.forEach((t)=> {
+            if (t.tile == tile) {
+                if (t.tile_num > 0) {
+
+                    _project_data.forEach((r) => {
+                        if (r.checked == true) {
+                            if (r.count < 0 || r.tiles.length < r.count) {
+                                r.tiles.push(tile);
+                                r.tiles.sort();
+                                set_project_data(_project_data);
+                                t.tile_num--;
+                                set_tile_pool(_tile_pool);
+                                return true;
+                            }
+                        }
+                    });
+
+                }
+                return true;
+            }
+        });
+    });
+};
+
+let project_data_checked = (rule) => {
+    _project_data.forEach((r) => {
+        if (r.name == rule.name) {
+            r.checked = true;
+        } else {
+            r.checked = false;
+        }
+    });
+    set_project_data(_project_data);
+};
+
+
 
 // events
 let on_model_templ_changed = ()=> {
@@ -98,17 +136,11 @@ let on_net_get_templ = (json_obj)=> {
 
 let on_view_tile_pool_tile_clicked = (tile) => {
     console.log(tile);
-    _tile_pool.forEach((color)=> {
-        color.forEach((t)=> {
-            if (t.tile == tile) {
-                if (t.tile_num > 0) {
-                    t.tile_num--;
-                    set_tile_pool(_tile_pool);
-                }
-                return true;
-            }
-        });
-    });
+    add_one_tile(tile);
+};
+
+let on_view_project_data_changed = (rule) => {
+    project_data_checked(rule);
 };
 
 let init = ()=> {
@@ -124,6 +156,7 @@ let init = ()=> {
     dispatcher.add_listener(event_type.net_get_templ, on_net_get_templ);
 
     dispatcher.add_listener(event_type.view_tile_pool_tile_clicked, on_view_tile_pool_tile_clicked);
+    dispatcher.add_listener(event_type.view_project_data_changed, on_view_project_data_changed);
 };
 
 export default {
