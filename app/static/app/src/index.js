@@ -8,17 +8,13 @@
  *
  */
 
-let $ = require('jQuery');
-window.$ = $;
-let imagesReq = require.context("../images", true, /^\.\/.*\.png$/);
-window.imagesReq = imagesReq;
-
-import 'bootstrap'
+let $ = window.$ = window.jQuery = require('jQuery');
+let imagesReq = window.imagesReq = require.context("../images", true, /^\.\/.*\.png$/);
+let bootstrap = require('bootstrap');
 
 //import '../css/base.css'
 //import '../css/1.css'
 import '../css/style.css'
-
 
 import controllers from './controllers'
 import views from './views'
