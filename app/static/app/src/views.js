@@ -10,9 +10,9 @@ import dispatcher from './dispatcher'
 import event_type from './event_type'
 
 
-import top_view from './views/top_view'
-import tile_pool_view from './views/tile_pool_view'
-import project_data_view from './views/project_data_view'
+import top_view from './components/top_view'
+import tile_pool_view from './components/tile_pool_view'
+import project_data_view from './components/project_data_view'
 
 
 
