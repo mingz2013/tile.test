@@ -6,7 +6,7 @@ import event_type from '../event_type'
 
 let on_sys_game_id_select_changed = () => {
     let gameid = $('#gameIdSelect').val();
-    console.log(gameid);
+    //console.log(gameid);
     dispatcher.dispatch_event(event_type.view_game_id_changed, gameid);
 };
 let on_sys_play_mode_select_changed = () => {

@@ -5,9 +5,14 @@
 import dispatcher from '../dispatcher'
 import event_type from '../event_type'
 
+let on_sys_tile_pool_tile_click = (tile) => {
+    console.log(tile);
+};
+
+
 let tile_view = (tile, num) => {
     return `<div class="tile">
-                <img src="${imagesReq('./' + tile + '.png')}" class="tile"/>
+                <img src="${imagesReq('./' + tile + '.png')}" class="tile" onclick="(${on_sys_tile_pool_tile_click})(${tile})"/>
                 <div class="dot">
                     <span>${num}</span>
                 </div>
