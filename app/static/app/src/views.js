@@ -15,7 +15,6 @@ import tile_pool_view from './components/tile_pool_view'
 import project_data_view from './components/project_data_view'
 
 
-
 let init = () => {
     top_view.init();
     tile_pool_view.init();
