@@ -7,6 +7,7 @@ import event_type from '../event_type'
 
 let on_sys_tile_pool_tile_click = (tile) => {
     console.log(tile);
+    dispatcher.dispatch_event(event_type.view_tile_pool_tile_clicked, tile);
 };
 
 
