@@ -7,28 +7,38 @@
 
 
 // model changed
-let game_id_list_changed = "game_id_list_changed";
-let play_mode_list_changed = "play_mode_list_changed";
-let templ_changed = "templ_changed";
-let tile_pool_changed = "tile_pool_changed";
-let project_data_changed = "project_data_changed";
+let model_game_id_list_changed = "model_game_id_list_changed";
+let model_play_mode_list_changed = "model_play_mode_list_changed";
+let model_templ_changed = "model_templ_changed";
+let model_tile_pool_changed = "model_tile_pool_changed";
+let model_project_data_changed = "model_project_data_changed";
 
 // view events
-let window_load = "window_load";
-let game_id_changed = "game_id_changed";
-let play_mode_changed = "play_mode_changed";
+let view_window_load = "view_window_load";
+let view_game_id_changed = "view_game_id_changed";
+let view_play_mode_changed = "view_play_mode_changed";
+
+
+// net events
+let net_get_game_id_list = "net_get_game_id_list";
+let net_get_play_mode_list = "net_get_play_mode_list";
+let net_get_templ = "net_get_templ";
 
 export default {
 
-    game_id_list_changed,
-    play_mode_list_changed,
-    templ_changed,
-    tile_pool_changed,
-    project_data_changed,
+    model_game_id_list_changed,
+    model_play_mode_list_changed,
+    model_templ_changed,
+    model_tile_pool_changed,
+    model_project_data_changed,
 
-    window_load,
-    game_id_changed,
-    play_mode_changed
+    view_window_load,
+    view_game_id_changed,
+    view_play_mode_changed,
+
+    net_get_game_id_list,
+    net_get_play_mode_list,
+    net_get_templ
 
 
 }

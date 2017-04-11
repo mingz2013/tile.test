@@ -16,7 +16,7 @@ let bootstrap = require('bootstrap');
 //import '../css/1.css'
 import '../css/style.css'
 
-import controllers from './controllers'
+import net from './net'
 import views from './views'
 import models from './models'
 import dispatcher from './dispatcher'
@@ -26,20 +26,22 @@ import event_type from './event_type'
 window.onload = () => {
 
     $('#gameId').change(() => {
-        dispatcher.dispatch_event(event_type.game_id_changed);
+        let gameid = $('#gameId').val();
+        dispatcher.dispatch_event(event_type.view_game_id_changed, gameid);
     });
 
     $('#playMode').change(()=> {
-        dispatcher.dispatch_event(event_type.play_mode_changed);
+        let templ = $('#playMode').val();
+        dispatcher.dispatch_event(event_type.view_play_mode_changed, templ);
     });
 
     models.init();
-    controllers.init();
+    net.init();
     views.init();
 
 
     // begin
-    dispatcher.dispatch_event(event_type.window_load);
+    dispatcher.dispatch_event(event_type.view_window_load);
 };
 
 

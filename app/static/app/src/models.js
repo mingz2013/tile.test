@@ -25,7 +25,7 @@ let get_game_id_list = () => {
 
 let set_game_id_list = (game_id_list) => {
     _game_id_list = game_id_list;
-    dispatcher.dispatch_event(event_type.game_id_list_changed);
+    dispatcher.dispatch_event(event_type.model_game_id_list_changed, _game_id_list);
 };
 
 let get_play_mode_list = ()=> {
@@ -33,7 +33,7 @@ let get_play_mode_list = ()=> {
 };
 let set_play_mode_list = (play_mode_list) => {
     _play_mode_list = play_mode_list;
-    dispatcher.dispatch_event(event_type.play_mode_list_changed);
+    dispatcher.dispatch_event(event_type.model_play_mode_list_changed, _play_mode_list);
 };
 
 let get_templ = () => {
@@ -42,7 +42,7 @@ let get_templ = () => {
 
 let set_templ = (templ) => {
     _templ = templ;
-    dispatcher.dispatch_event(event_type.templ_changed);
+    dispatcher.dispatch_event(event_type.model_templ_changed, _play_mode_list);
 };
 
 
@@ -51,20 +51,22 @@ let get_tile_pool = () => {
 };
 let set_tile_pool = (tile_pool) => {
     _tile_pool = tile_pool;
-    dispatcher.dispatch_event(event_type.tile_pool_changed);
+    dispatcher.dispatch_event(event_type.model_tile_pool_changed, _tile_pool);
 };
 
-let set_project_data = (project_data) => {
-    _project_data = project_data;
-    dispatcher.dispatch_event(event_type.project_data_changed);
-};
 let get_project_data = () => {
     return _project_data;
 };
 
+let set_project_data = (project_data) => {
+    _project_data = project_data;
+    dispatcher.dispatch_event(event_type.model_project_data_changed, _project_data);
+};
+
+
 
 // events
-let on_templ_changed = ()=> {
+let on_model_templ_changed = ()=> {
 
     let tiles = _templ.tiles || [];
     let tile_pool = tiles.reduce((acc, color, i) => {
@@ -83,26 +85,31 @@ let on_templ_changed = ()=> {
     set_project_data(_templ.rule);
 };
 
+let on_net_get_game_id_list = (json_obj)=> {
+    set_game_id_list(json_obj);
+};
+
+let on_net_get_play_mode_list = (json_obj) => {
+    set_play_mode_list(json_obj);
+};
+let on_net_get_templ = (json_obj)=> {
+    set_templ(json_obj);
+};
 
 let init = ()=> {
     _game_id_list = [];
     _play_mode_list = [];
     _templ = {};
     _tile_pool = {};
-    dispatcher.add_listener(event_type.templ_changed, on_templ_changed);
+
+    dispatcher.add_listener(event_type.model_templ_changed, on_model_templ_changed);
+
+    dispatcher.add_listener(event_type.net_get_game_id_list, on_net_get_game_id_list);
+    dispatcher.add_listener(event_type.net_get_play_mode_list, on_net_get_play_mode_list);
+    dispatcher.add_listener(event_type.net_get_templ, on_net_get_templ);
 };
 
 export default {
-    init,
-    get_game_id_list,
-    set_game_id_list,
-    get_play_mode_list,
-    set_play_mode_list,
-    get_templ,
-    set_templ,
-    get_tile_pool,
-    set_tile_pool,
-    set_project_data,
-    get_project_data
+    init
 }
 
