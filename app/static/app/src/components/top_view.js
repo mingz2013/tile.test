@@ -26,8 +26,6 @@ let render_game_id_select_view = (game_id_list) => {
     $('#gameId').html(game_id_select_view(game_id_list));
     $('#gameIdSelect').bind('change', on_sys_game_id_select_changed);
     $('#gameIdSelect').trigger('change');
-
-    on_sys_game_id_select_changed();
 };
 
 let render_play_mode_select_view = (play_mode_list) => {
