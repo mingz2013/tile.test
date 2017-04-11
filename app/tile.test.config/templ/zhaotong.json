@@ -44,7 +44,8 @@
       "tiles": [
         1
       ],
-      "checked": true
+      "checked": true,
+      "sort": true
     },
     {
       "name": "seat0",
@@ -66,7 +67,8 @@
         3,
         4
       ],
-      "checked": false
+      "checked": false,
+      "sort": true
     },
     {
       "name": "seat1",
@@ -88,7 +90,8 @@
         3,
         4
       ],
-      "checked": false
+      "checked": false,
+      "sort": true
     },
     {
       "name": "seat2",
@@ -110,7 +113,8 @@
         13,
         14
       ],
-      "checked": false
+      "checked": false,
+      "sort": true
     },
     {
       "name": "seat3",
@@ -132,7 +136,8 @@
         3,
         4
       ],
-      "checked": false
+      "checked": false,
+      "sort": true
     },
     {
       "name": "other",
@@ -144,7 +149,8 @@
         7,
         8
       ],
-      "checked": false
+      "checked": false,
+      "sort": false
     },
     {
       "name": "last",
@@ -161,7 +167,8 @@
         28,
         29
       ],
-      "checked": false
+      "checked": false,
+      "sort": false
     }
   ]
 }

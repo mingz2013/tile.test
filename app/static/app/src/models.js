@@ -74,7 +74,9 @@ let add_one_tile = (tile) => {
                         if (r.checked == true) {
                             if (r.count < 0 || r.tiles.length < r.count) {
                                 r.tiles.push(tile);
-                                r.tiles.sort();
+                                if (r.sort) {
+                                    r.tiles.sort();
+                                }
                                 set_project_data(_project_data);
                                 t.tile_num--;
                                 set_tile_pool(_tile_pool);
