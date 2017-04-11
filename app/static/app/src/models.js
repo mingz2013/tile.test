@@ -69,7 +69,6 @@ let add_one_tile = (tile) => {
         color.forEach((t)=> {
             if (t.tile == tile) {
                 if (t.tile_num > 0) {
-
                     _project_data.forEach((r) => {
                         if (r.checked == true) {
                             if (r.count < 0 || r.tiles.length < r.count) {

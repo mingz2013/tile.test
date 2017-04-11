@@ -19,9 +19,14 @@ let project_data_radio_view = (desc, name) => {
 
 let project_data_tiles_view = (tiles) => {
     return tiles.map((tile)=> {
-        return `<div class="tile">
+        if (tile > 0) {
+            return `<div class="tile">
                 <img src="${imagesReq('./' + tile + '.png')}" class="tile"/>
+
             </div>`
+        } else {
+            return `<div class="tile"></div>`
+        }
     }).join('');
 };
 
