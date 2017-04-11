@@ -27,14 +27,9 @@ import event_type from './event_type'
 
 window.onload = () => {
 
-    $('#gameId').change(() => {
-        let gameid = $('#gameId').val();
-        dispatcher.dispatch_event(event_type.view_game_id_changed, gameid);
-    });
 
     $('#playMode').change(()=> {
-        let templ = $('#playMode').val();
-        dispatcher.dispatch_event(event_type.view_play_mode_changed, templ);
+
     });
 
     models.init();
