@@ -26,12 +26,11 @@ let render_tile_pool_view = (tile_pool) => {
 
 
 let on_model_tile_pool_changed = (tile_pool)=> {
-    console.log(tile_pool);
+    //console.log(tile_pool);
     render_tile_pool_view(tile_pool);
 };
 
 let init = () => {
-
     dispatcher.add_listener(event_type.model_tile_pool_changed, on_model_tile_pool_changed);
 };
 

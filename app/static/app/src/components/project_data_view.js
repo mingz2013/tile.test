@@ -32,7 +32,6 @@ let render_project_data_view = (project_data) => {
 };
 
 let on_model_project_data_changed = (project_data) => {
-    console.log(project_data);
     render_project_data_view(project_data);
 };
 
