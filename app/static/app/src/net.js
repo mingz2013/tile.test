@@ -8,7 +8,7 @@ import dispatcher from './dispatcher'
 import event_type from './event_type'
 
 
-let base_path = '/tile';
+let _base_path = '/tile';
 
 
 let _ajax_get = (url, callback) => {
@@ -23,21 +23,21 @@ let _ajax_get = (url, callback) => {
 };
 
 let get_game_id_list = () => {
-    let url = base_path + "/game_id_list";
+    let url = _base_path + "/game_id_list";
     _ajax_get(url, (json_obj) => {
         dispatcher.dispatch_event(event_type.net_get_game_id_list, json_obj);
     });
 };
 
 let get_play_mode_list_by_game_id = (game_id) => {
-    let url = base_path + "/play_mode_list/" + game_id;
+    let url = _base_path + "/play_mode_list/" + game_id;
     _ajax_get(url, (json_obj)=> {
         dispatcher.dispatch_event(event_type.net_get_play_mode_list, json_obj);
     });
 };
 
 let get_templ_by_templ_name = (templ_name) => {
-    let url = base_path + "/templ/" + templ_name;
+    let url = _base_path + "/templ/" + templ_name;
     _ajax_get(url, (json_obj)=> {
         dispatcher.dispatch_event(event_type.net_get_templ, json_obj);
     });
