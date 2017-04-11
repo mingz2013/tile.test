@@ -5,7 +5,9 @@
 import dispatcher from '../dispatcher'
 import event_type from '../event_type'
 
-let on_sys_tile_pool_tile_click = (tile) => {
+let on_sys_tile_pool_tile_click = (e) => {
+    let tile = e.data;
+    //let tile = e.currentTarget.tile;
     console.log(tile);
     dispatcher.dispatch_event(event_type.view_tile_pool_tile_clicked, tile);
 };
@@ -13,7 +15,7 @@ let on_sys_tile_pool_tile_click = (tile) => {
 
 let tile_view = (tile, num) => {
     return `<div class="tile">
-                <img src="${imagesReq('./' + tile + '.png')}" class="tile" onclick="(${on_sys_tile_pool_tile_click})(${tile})"/>
+                <img src="${imagesReq('./' + tile + '.png')}" class="tile" id="tile-pool-${tile}" tile="${tile}"/>
                 <div class="dot">
                     <span>${num}</span>
                 </div>
@@ -28,6 +30,11 @@ let tile_pool_view = (tiles) => {
 
 let render_tile_pool_view = (tile_pool) => {
     $('#tilePool').html(tile_pool_view(tile_pool));
+    tile_pool.forEach((color)=> {
+        color.forEach((tile)=> {
+            $('#tile-pool-' + tile.tile).bind('click', tile.tile, on_sys_tile_pool_tile_click);
+        });
+    });
 };
 
 

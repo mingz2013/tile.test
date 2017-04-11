@@ -96,6 +96,21 @@ let on_net_get_templ = (json_obj)=> {
     set_templ(json_obj);
 };
 
+let on_view_tile_pool_tile_clicked = (tile) => {
+    console.log(tile);
+    _tile_pool.forEach((color)=> {
+        color.forEach((t)=> {
+            if (t.tile == tile) {
+                if (t.tile_num > 0) {
+                    t.tile_num--;
+                    set_tile_pool(_tile_pool);
+                }
+                return true;
+            }
+        });
+    });
+};
+
 let init = ()=> {
     _game_id_list = [];
     _play_mode_list = [];
@@ -107,6 +122,8 @@ let init = ()=> {
     dispatcher.add_listener(event_type.net_get_game_id_list, on_net_get_game_id_list);
     dispatcher.add_listener(event_type.net_get_play_mode_list, on_net_get_play_mode_list);
     dispatcher.add_listener(event_type.net_get_templ, on_net_get_templ);
+
+    dispatcher.add_listener(event_type.view_tile_pool_tile_clicked, on_view_tile_pool_tile_clicked);
 };
 
 export default {
